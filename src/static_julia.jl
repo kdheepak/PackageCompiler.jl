@@ -275,6 +275,7 @@ function build_shared(s_file, o_file, init_shared, builddir, verbose, optimize, 
 		// Julia headers (for initialization and gc commands)
 		#include "uv.h"
 		#include "julia.h"
+		static void init_jl_runtime() __attribute__((constructor));
 		void init_jl_runtime() // alternate name for jl_init_with_image, with hardcoded library name
 		{
 		    // JULIAC_PROGRAM_LIBNAME defined on command-line for compilation
