@@ -276,10 +276,10 @@ function build_shared(s_file, o_file, init_shared, builddir, verbose, optimize, 
 		#include "uv.h"
 		#include "julia.h"
 		#include "stdio.h"
-		void __attribute__((constructor(0))) init_jl_runtime();
+		void __attribute__((constructor(101))) init_jl_runtime();
 		void init_jl_runtime() // alternate name for jl_init_with_image, with hardcoded library name
 		{
-		    printf("\n\nRunning constructor priority 0\n\n");
+		    printf("\\n\\nRunning constructor priority 0\\n\\n");
 		    // JULIAC_PROGRAM_LIBNAME defined on command-line for compilation
 		    const char rel_libname[] = JULIAC_PROGRAM_LIBNAME;
 		    jl_init_with_image(NULL, rel_libname);
